@@ -30,3 +30,7 @@ export const test = safeClient
         console.log(error)
     }
 })
+
+// CLOUDINARY_NAME=dhgxlle5b
+// CLOUDINARY_API_KEY=437588893996267
+// CLOUDINARY_API_SECRET=QPbH_kNff8rLln19ZpLoSFP37oc
