@@ -43,7 +43,7 @@ const UploadImage = () => {
       )}
     >
       <CardContent className="flex flex-col items-center px-2 py-24 text-xs">
-        <Input {...getInputProps()} />
+        <Input {...getInputProps()} suppressHydrationWarning/>
         <div className="flex flex-col items-center justify-center gap-4">
           <Lottie animationData={animationUploadImage} className="h-48"/>
           <p className="text-muted-foreground text-2xl">

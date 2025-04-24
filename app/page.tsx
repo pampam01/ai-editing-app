@@ -1,12 +1,10 @@
-import Editor from "@/components/Editor";
-import Image from "next/image";
+import { ImageStoreProvider, useImageStore } from '@/lib/image-store';
+import Editor from '@/components/Editor';
 
 export default function Home() {
   return (
-   <div>
-    <Editor />
-
-    
-   </div>
+    <ImageStoreProvider initialValue={{ activeColor: 'ss', activeImage: 'dd', activeTag: 'dd' }}>
+      <Editor />
+    </ImageStoreProvider>
   );
 }
