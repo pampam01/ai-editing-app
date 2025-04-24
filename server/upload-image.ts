@@ -52,7 +52,7 @@ export const uploadImage = safeActionClient
           }
         );
 
-        uploadStream.write(buffer);
+        uploadStream.end(buffer)
       });
     } catch (error) {
         console.error("error processing file", error)

@@ -1,5 +1,7 @@
 import React from "react";
 import ModeToggle from "./ModeToggle";
+import UploadImage from "./upload/UploadImage";
+ 
 
 const Editor = () => {
   return (
@@ -11,6 +13,7 @@ const Editor = () => {
         </div>
 
         <div className="flex flex-col gap-4">
+          <UploadImage />
         </div>
       </div>
     </div>
