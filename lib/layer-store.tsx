@@ -123,7 +123,7 @@ const getStore = (initialState: {
 
 const layerStore = createZustandContext(getStore)
 
-export function useLayerzStore<T>(selector: (state: State) => T) {
+export function useLayerStore<T>(selector: (state: State) => T) {
   const store = React.useContext(layerStore.Context);
   if (!store) {
     throw new Error("Missing LayerStore provider");
