@@ -9,8 +9,16 @@ import { Input } from "../ui/input";
 import { cn } from "@/lib/utils";
 import Lottie from "lottie-react";
 import animationUploadImage from "@/public/animations/image-upload.json"
+import { useImageStore } from "@/lib/image-store";
+import { useLayerStore } from "@/lib/layer-store";
 
 const UploadImage = () => {
+  const activeLayers = useLayerStore((state) => state.activeLayer);
+  const setActiveLayer = useLayerStore((state) => state.setActiveLayer);
+  const setUpdateLayers = useLayerStore((state) => state.updateLayer);
+  const setGenerating = useImageStore((state) => state.setGenerating);
+
+
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     maxFiles: 1,
     accept: {
@@ -25,9 +33,24 @@ const UploadImage = () => {
         formData.append("image", acceptedFiles[0]);
         const objectUrl = URL.createObjectURL(acceptedFiles[0]);
 
+        setGenerating(true);
+
+        setUpdateLayers({
+          id:activeLayers.id,
+          url:objectUrl,
+          width:0,
+          height:0,
+          name:'uploading',
+          publicId:'',
+          format:'',
+          resourceType:'image'
+        })
+
         //  layers settings
 
         const res = await uploadImage({ image: formData });
+
+
 
         console.log(res);
       }
