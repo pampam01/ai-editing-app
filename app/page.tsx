@@ -23,7 +23,11 @@ export default function Home() {
       <ImageStoreProvider
         initialValue={{ activeColor: "ss", activeImage: "dd", activeTag: "dd" }}
       >
+        <main
+        className="h-full"
+        >
         <Editor />
+        </main>
       </ImageStoreProvider>
     </LayerStoreProvider>
   );
